@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('graphs', App\Http\Controllers\API\GraphController::class);
+Route::apiResource('graphs.nodes', App\Http\Controllers\API\NodeController::class)->shallow();
+Route::apiResource('graphs.relations', App\Http\Controllers\API\RelationController::class)->shallow();
